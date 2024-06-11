@@ -10,7 +10,7 @@ if [ -e "$VERSION_FILE" ]; then
   # Be careful not to load it whole in case there's something crazy in it.
   IFS="${IFS}"$'\r'
   words=( $(cut -b 1-1024 "$VERSION_FILE") )
-  version="${words[0]}"
+  version="${words[0]#v}"
 
   if [ -n "$version" ]; then
     echo "$version"
